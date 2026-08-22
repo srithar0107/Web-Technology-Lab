@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f2f7fc;
+}
+
+
+/* Header */
+
+header {
+    background: linear-gradient(#003b70, #0066aa);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+/* Navigation */
+
+nav {
+    background: #004f91;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 15px 40px;
+}
+
+nav ul li:hover {
+    background: #0077b6;
+}
+
+
+/* Dropdown */
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #003b70;
+    width: 190px;
+    z-index: 10;
+}
+
+.dropdown li {
+    width: 100%;
+}
+
+.dropdown li a {
+    padding: 14px;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li:hover {
+    background: #0066aa;
+}
+
+
+/* Main Form Area */
+
+.container {
+    min-height: 600px;
+
+    background:
+    linear-gradient(rgba(0, 45, 80, 0.65),
+    rgba(0, 45, 80, 0.65)),
+    url("images/architecture.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 60px;
+
+    padding: 70px;
+}
+
+
+/* Form Boxes */
+
+.box {
+    background: white;
+
+    width: 360px;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.box h2 {
+    text-align: center;
+
+    color: #003b70;
+
+    margin-bottom: 25px;
+}
+
+
+/* Labels */
+
+label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 6px;
+}
+
+
+/* Input Fields */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 5px;
+}
+
+
+/* Buttons */
+
+input[type="submit"] {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    background: #003b70;
+
+    color: white;
+
+    font-size: 16px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+
+    background: #0077b6;
+}
+
+
+/* Footer */
+
+footer {
+
+    background: #003b70;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    line-height: 1.8;
+}
+
+footer h3 {
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 800px) {
+
+    nav ul {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .dropdown {
+        position: static;
+
+        width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+
+        padding: 40px 20px;
+
+        gap: 30px;
+    }
+
+    .box {
+        width: 100%;
+
+        max-width: 380px;
+    }
+
+}
+.container {
+    min-height: 600px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 45, 80, 0.55),
+            rgba(0, 45, 80, 0.55)
+        ),
+        url("image/architecture.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 70px;
+}
+.password-message {
+    display: block;
+    margin-top: -12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.password-box input:valid:not(:placeholder-shown) + .password-message::after {
+    content: "✓ Valid password";
+    color: green;
+}
+
+.password-box input:invalid:not(:placeholder-shown) + .password-message::after {
+    content: "✗ Invalid password";
+    color: red;
+}
