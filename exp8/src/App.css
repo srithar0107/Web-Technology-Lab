@@ -1,0 +1,354 @@
+
+/* ELITE ARCHITECTURAL FIRM - EXPERIMENT 8 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f3f6f4;
+  color: #263746;
+  line-height: 1.6;
+}
+
+/* HEADER */
+
+.main-header {
+  background: linear-gradient(135deg, #10243a, #176b70);
+  color: white;
+  text-align: center;
+  padding: 30px 15px 20px;
+  border-bottom: 4px solid #d8b45a;
+}
+
+.main-header h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.main-header > p {
+  color: #e0e9e9;
+  margin: 6px 0 20px;
+}
+
+/* NAVIGATION */
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #e5bd69;
+}
+
+/* MAIN */
+
+main {
+  min-height: 75vh;
+  padding: 45px 18px;
+}
+
+/* HOME PAGE */
+
+.home-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.home-card {
+  min-height: 390px;
+  padding: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: linear-gradient(135deg, #ffffff, #e7f0ed);
+  border-radius: 18px;
+  border-bottom: 5px solid #d8b45a;
+  box-shadow: 0 10px 30px #10243a15;
+}
+
+.home-content {
+  max-width: 650px;
+}
+
+.tagline {
+  color: #b18a37;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.home-content h2 {
+  color: #10243a;
+  font-size: 40px;
+  line-height: 1.3;
+  margin: 15px 0;
+}
+
+.home-description {
+  color: #61717a;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.home-icon {
+  font-size: 110px;
+  background: #dcebe7;
+  padding: 35px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px #10243a12;
+}
+
+/* BUTTON */
+
+.button,
+button {
+  display: inline-block;
+  background: linear-gradient(135deg, #176b70, #21878a);
+  color: white;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover,
+button:hover {
+  background: linear-gradient(135deg, #10243a, #176b70);
+  transform: translateY(-2px);
+}
+
+/* FEATURE SECTION */
+
+.feature-section {
+  padding: 55px 0 25px;
+}
+
+.feature-section > h2 {
+  text-align: center;
+  color: #10243a;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.feature-card {
+  flex: 1 1 250px;
+  max-width: 320px;
+  padding: 30px 22px;
+  text-align: center;
+  background: white;
+  border: 1px solid #e4ebe8;
+  border-bottom: 4px solid #d8b45a;
+  border-radius: 13px;
+  box-shadow: 0 7px 22px #10243a12;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px #10243a20;
+}
+
+.feature-card span {
+  font-size: 38px;
+}
+
+.feature-card h3 {
+  color: #176b70;
+  margin: 12px 0;
+}
+
+.feature-card p {
+  color: #718087;
+  font-size: 14px;
+}
+
+/* REGISTRATION PAGE */
+
+.register-container {
+  width: 100%;
+}
+
+.register-card {
+  max-width: 550px;
+  margin: 10px auto;
+  padding: 35px;
+  background: white;
+  border-radius: 15px;
+  border-top: 5px solid #d8b45a;
+  box-shadow: 0 8px 28px #10243a16;
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-heading h2 {
+  color: #10243a;
+  font-size: 27px;
+  margin: 5px 0;
+}
+
+.form-heading > p:last-child {
+  color: #718087;
+  font-size: 14px;
+}
+
+/* FORM LABELS */
+
+label {
+  display: block;
+  color: #263746;
+  font-weight: 600;
+  margin: 15px 0 6px;
+}
+
+/* INPUTS */
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd7d5;
+  border-radius: 7px;
+  background: #fbfcfc;
+  font-size: 15px;
+  color: #263746;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #176b70;
+  box-shadow: 0 0 0 3px #176b701f;
+}
+
+input::placeholder {
+  color: #89969d;
+}
+
+/* ERROR MESSAGES */
+
+small {
+  display: block;
+  color: #dc3545;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* SUBMIT BUTTON */
+
+.register-card button {
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* SUCCESS MESSAGE */
+
+.success {
+  color: #176b70;
+  background: #e7f4ed;
+  padding: 12px;
+  margin-top: 18px;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+
+footer {
+  background: linear-gradient(135deg, #10243a, #153b4c);
+  color: #dce6e7;
+  text-align: center;
+  padding: 22px 15px;
+  border-top: 4px solid #d8b45a;
+  font-size: 14px;
+}
+
+/* TABLET RESPONSIVE */
+
+@media (max-width: 768px) {
+  .home-card {
+    padding: 35px;
+  }
+
+  .home-content h2 {
+    font-size: 32px;
+  }
+
+  .home-icon {
+    font-size: 75px;
+    padding: 22px;
+  }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 550px) {
+  .main-header h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    gap: 22px;
+  }
+
+  main {
+    padding: 25px 12px;
+  }
+
+  .home-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .home-content h2 {
+    font-size: 27px;
+  }
+
+  .home-icon {
+    font-size: 65px;
+    padding: 18px;
+  }
+
+  .register-card {
+    padding: 22px 18px;
+  }
+
+  .form-heading h2 {
+    font-size: 23px;
+  }
+
+  .feature-card {
+    max-width: 100%;
+  }
+}
