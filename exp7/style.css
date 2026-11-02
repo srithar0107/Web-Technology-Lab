@@ -1,0 +1,411 @@
+
+/* ==================================
+   EXPERIMENT 7 - WORKING WITH JQUERY
+   Modern Elite Architectural Firm UI
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f5;
+    color: #263746;
+    line-height: 1.7;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #10243a, #176b70);
+    color: #ffffff;
+    text-align: center;
+    padding: 42px 20px;
+    border-bottom: 4px solid #d8b45a;
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #e0e9e9;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #10243a;
+    padding: 15px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+nav a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e5bd69;
+}
+
+/* HERO SECTION */
+
+.hero {
+    text-align: center;
+    padding: 75px 20px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(23, 107, 112, 0.13),
+            transparent 45%
+        ),
+        linear-gradient(135deg, #edf3f1, #e2ebeb);
+    border-bottom: 1px solid #dce5e3;
+}
+
+.hero h2 {
+    color: #10243a;
+    font-size: 34px;
+    margin-bottom: 14px;
+}
+
+.hero > p {
+    color: #536570;
+    font-size: 17px;
+    margin-bottom: 18px;
+}
+
+#aboutText {
+    max-width: 650px;
+    margin: 18px auto 0;
+    padding: 18px;
+    background: #ffffff;
+    color: #176b70;
+    border-left: 4px solid #d8b45a;
+    border-radius: 8px;
+    box-shadow: 0 5px 18px rgba(16, 36, 58, 0.08);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 55px 8%;
+}
+
+section h2 {
+    color: #10243a;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #d8b45a;
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+/* SERVICES */
+
+#services {
+    background: #f7f8f6;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card {
+    flex: 1 1 230px;
+    max-width: 320px;
+    background: #ffffff;
+    padding: 30px 24px;
+    text-align: center;
+    border-radius: 14px;
+    border: 1px solid #e6ece9;
+    border-bottom: 4px solid #d8b45a;
+    box-shadow: 0 7px 22px rgba(16, 36, 58, 0.07);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 13px 28px rgba(16, 36, 58, 0.13);
+}
+
+.card h3 {
+    color: #176b70;
+    margin: 12px 0;
+    font-size: 19px;
+}
+
+.card p {
+    color: #687781;
+    font-size: 14px;
+}
+
+/* JQUERY DEMO SECTION */
+
+.demo {
+    background: linear-gradient(180deg, #eaf0ef, #f4f6f5);
+}
+
+.demo-box {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e0e8e5;
+    border-radius: 14px;
+    border-left: 5px solid #176b70;
+    box-shadow: 0 7px 22px rgba(16, 36, 58, 0.07);
+    transition: box-shadow 0.3s ease;
+}
+
+.demo-box:hover {
+    box-shadow: 0 10px 28px rgba(16, 36, 58, 0.12);
+}
+
+.demo-box h3 {
+    color: #10243a;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.demo-box p {
+    color: #596b75;
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
+
+button {
+    display: inline-block;
+    background: linear-gradient(135deg, #176b70, #21878a);
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 20px;
+    margin: 8px 7px 5px 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(23, 107, 112, 0.15);
+    transition: background 0.3s ease,
+                transform 0.2s ease,
+                box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #10243a, #176b70);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(16, 36, 58, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* INPUT FIELDS */
+
+input {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px 14px;
+    margin: 7px 8px 7px 0;
+    border: 1px solid #cbd7d5;
+    border-radius: 7px;
+    background: #fbfcfc;
+    color: #263746;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #176b70;
+    box-shadow: 0 0 0 3px rgba(23, 107, 112, 0.12);
+}
+
+input::placeholder {
+    color: #89969d;
+}
+
+#result {
+    background: #edf4f1;
+    font-weight: bold;
+}
+
+/* TEXT STYLE DEMO */
+
+#sampleText {
+    padding: 12px;
+    background: #f1f6f4;
+    border-radius: 7px;
+    border-left: 3px solid #d8b45a;
+}
+
+/* FADE DEMO */
+
+#fadeBox {
+    display: block;
+    background: linear-gradient(135deg, #10243a, #176b70);
+    color: #ffffff;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(16, 36, 58, 0.13);
+}
+
+/* SLIDE DEMO */
+
+#projectDetails {
+    display: none;
+    margin-top: 15px;
+    padding: 20px;
+    background: #edf4f1;
+    border-radius: 8px;
+    border-left: 4px solid #d8b45a;
+}
+
+#projectDetails p {
+    padding: 5px 0;
+}
+
+/* ADDITION RESULT */
+
+#resultBox {
+    color: #176b70;
+    font-weight: 700;
+    margin-top: 12px;
+    padding: 8px 0;
+}
+
+/* FOOTER */
+
+footer {
+    background: linear-gradient(135deg, #10243a, #153b4c);
+    color: #dce6e7;
+    text-align: center;
+    padding: 24px 15px;
+    border-top: 4px solid #d8b45a;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    header {
+        padding: 32px 15px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        margin: 5px 10px;
+    }
+
+    .hero {
+        padding: 50px 18px;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    .demo-box {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 12px 8px;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin: 5px 7px;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    .card {
+        flex-basis: 100%;
+    }
+
+    .demo-box {
+        padding: 18px;
+    }
+
+    input {
+        max-width: 100%;
+    }
+
+    button {
+        padding: 10px 14px;
+    }
+}

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Architectural Firm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="home">
+        <h1>Elite Architectural Firm</h1>
+        <p>Designing Modern Buildings with Creativity and Innovation</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- CLIENT LOGIN AND REGISTRATION -->
+    <section class="login-section">
+
+        <div class="login-box">
+            <h2>Client Sign In</h2>
+
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email"
+                       placeholder="Enter Email" required>
+
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password"
+                       placeholder="Enter Password"
+                       minlength="8"
+                       pattern="(?=.*[^A-Za-z0-9]).{8,}"
+                       title="Password must contain at least 8 characters and one special character."
+                       required>
+
+                <input type="submit" value="Sign In">
+            </form>
+        </div>
+
+        <div class="login-box">
+            <h2>Client Sign Up</h2>
+
+            <form id="signup-form">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" type="text"
+                       placeholder="Enter Full Name" required>
+
+                <label for="signup-email">Email</label>
+                <input id="signup-email" type="email"
+                       placeholder="Enter Email" required>
+
+                <label for="phone">Phone Number</label>
+                <input id="phone" type="tel"
+                       placeholder="Enter 10 digit phone number"
+                       pattern="[0-9]{10}"
+                       maxlength="10"
+                       title="Enter exactly 10 digits"
+                       required>
+
+                <label for="signup-password">Password</label>
+                <input id="signup-password" type="password"
+                       placeholder="Enter Password"
+                       minlength="8"
+                       pattern="(?=.*[^A-Za-z0-9]).{8,}"
+                       title="Password must contain at least 8 characters and one special character."
+                       required>
+
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section">
+        <h2>About Our Firm</h2>
+
+        <p>
+            Elite Architectural Firm specializes in modern residential,
+            commercial and interior architectural designs.
+            Our team focuses on creating modern, sustainable and
+            practical buildings according to client requirements.
+        </p>
+
+        <p>
+            We combine creativity with modern technology to provide
+            better architectural solutions for every project.
+        </p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="content-section">
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+
+            <div class="service-box">
+                <h3>Building Design</h3>
+                <ul>
+                    <li>Residential Design</li>
+                    <li>Commercial Design</li>
+                    <li>Villa Design</li>
+                    <li>Apartment Design</li>
+                </ul>
+            </div>
+
+            <div class="service-box">
+                <h3>Interior Design</h3>
+                <ul>
+                    <li>Living Room Design</li>
+                    <li>Office Interior</li>
+                    <li>Kitchen Design</li>
+                    <li>Modern Interiors</li>
+                </ul>
+            </div>
+
+            <div class="service-box">
+                <h3>Planning Services</h3>
+                <ul>
+                    <li>Floor Plans</li>
+                    <li>3D Visualization</li>
+                    <li>Construction Planning</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p id="service-message">
+            Click a service card to learn more about it.
+        </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section">
+        <h2>Completed Projects</h2>
+
+        <table>
+            <tr>
+                <th>Project Name</th>
+                <th>Location</th>
+                <th>Year</th>
+                <th>Status</th>
+            </tr>
+
+            <tr class="project-row"
+                data-project="Luxury Villa"
+                data-location="Karur">
+                <td>Luxury Villa</td>
+                <td>Karur</td>
+                <td>2024</td>
+                <td>Completed</td>
+            </tr>
+
+            <tr class="project-row"
+                data-project="Office Complex"
+                data-location="Chennai">
+                <td>Office Complex</td>
+                <td>Chennai</td>
+                <td>2025</td>
+                <td>Completed</td>
+            </tr>
+
+            <tr class="project-row"
+                data-project="Shopping Mall"
+                data-location="Coimbatore">
+                <td>Shopping Mall</td>
+                <td>Coimbatore</td>
+                <td>2026</td>
+                <td>Ongoing</td>
+            </tr>
+
+            <tr class="project-row"
+                data-project="Apartment Building"
+                data-location="Madurai">
+                <td>Apartment Building</td>
+                <td>Madurai</td>
+                <td>2025</td>
+                <td>Completed</td>
+            </tr>
+        </table>
+
+        <p id="project-details">
+            Click a project row to view its details.
+        </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="content-section">
+        <h2>Contact Information</h2>
+
+        <p><b>Company:</b> Elite Architectural Firm</p>
+        <p><b>Address:</b> Karur, Tamil Nadu, India</p>
+        <p><b>Phone:</b> +91 7094383092</p>
+        <p><b>Email:</b> sritharb@karunya.edu.in</p>
+        <p><b>Office Hours:</b> Monday - Saturday, 9:00 AM - 6:00 PM</p>
+    </section>
+
+    <!-- EXPERIMENT 5: DOM INTERACTION -->
+    <section class="content-section">
+        <h2>Explore Our Architecture</h2>
+
+        <p id="project-message">
+            Discover our architectural services and projects.
+        </p>
+
+        <button id="learn-more-button" type="button">
+            Learn More
+        </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Elite Architectural Firm</h2>
+        <p>Designing Modern Buildings with Creativity and Innovation.</p>
+        <p>Designed By: SRITHAR B</p>
+        <p>Register No: URK24CS6003</p>
+        <p>B.Tech Computer Science and Engineering</p>
+        <p>Karunya Institute of Technology and Sciences</p>
+        <p>© 2026 Elite Architectural Firm. All Rights Reserved.</p>
+    </footer>
+
+    <!-- CONNECT JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

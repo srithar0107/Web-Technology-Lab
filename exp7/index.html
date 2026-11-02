@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Architectural Firm - jQuery</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>ELITE ARCHITECTURAL FIRM</h1>
+    <p>Designing Spaces, Creating Futures</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#jquery">jQuery Demo</a>
+</nav>
+
+<section id="about" class="hero">
+    <h2>Modern Architecture & Design</h2>
+    <p>We create innovative, comfortable and sustainable spaces.</p>
+    <button id="learnBtn">Learn More</button>
+    <p id="aboutText" style="display:none;">
+        Our firm provides architectural planning, interior design and
+        modern building solutions.
+    </p>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">🏠<h3>Residential Design</h3>
+            <p>Beautiful homes designed for modern living.</p>
+        </div>
+        <div class="card">🏢<h3>Commercial Design</h3>
+            <p>Professional spaces for businesses.</p>
+        </div>
+        <div class="card">🛋️<h3>Interior Design</h3>
+            <p>Elegant and functional interiors.</p>
+        </div>
+    </div>
+</section>
+
+<section id="jquery" class="demo">
+    <h2>jQuery Actions</h2>
+
+    <div class="demo-box">
+        <h3>1. Text and Style Change</h3>
+        <p id="sampleText">Welcome to Elite Architectural Firm!</p>
+        <button id="changeBtn">Change Text Style</button>
+    </div>
+
+    <div class="demo-box">
+        <h3>2. Hide and Show</h3>
+        <p id="hideText">Good design makes every space special.</p>
+        <button id="hideBtn">Hide Text</button>
+        <button id="showBtn">Show Text</button>
+    </div>
+
+    <div class="demo-box">
+        <h3>3. Fade Effect</h3>
+        <div id="fadeBox">Creative Architecture</div>
+        <button id="fadeBtn">Fade In / Out</button>
+    </div>
+
+    <div class="demo-box">
+        <h3>4. Slide Effect</h3>
+        <button id="slideBtn">Show / Hide Project Details</button>
+        <div id="projectDetails">
+            <p>Project: Modern Residential Villa</p>
+            <p>Style: Contemporary Architecture</p>
+            <p>Focus: Comfort and Sustainability</p>
+        </div>
+    </div>
+
+    <div class="demo-box">
+        <h3>5. Addition using jQuery</h3>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button id="addBtn">Calculate Addition</button>
+        <input type="text" id="result" placeholder="Result" readonly>
+        <p id="resultBox"></p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Elite Architectural Firm | Web Technology Lab</p>
+</footer>
+
+<script>
+$(document).ready(function() {
+
+    // 1. Learn More: Show additional information
+    $("#learnBtn").click(function() {
+        $("#aboutText").toggle(500);
+    });
+
+    // 2. Change text and style
+    $("#changeBtn").click(function() {
+        $("#sampleText")
+            .text("Designing spaces that inspire!")
+            .css({
+                "color": "#008c95",
+                "font-weight": "bold",
+                "font-size": "20px"
+            });
+    });
+
+    // 3. Hide text
+    $("#hideBtn").click(function() {
+        $("#hideText").hide(500);
+    });
+
+    // 4. Show text
+    $("#showBtn").click(function() {
+        $("#hideText").show(500);
+    });
+
+    // 5. Fade effect
+    $("#fadeBtn").click(function() {
+        $("#fadeBox").fadeToggle(800);
+    });
+
+    // 6. Slide effect
+    $("#slideBtn").click(function() {
+        $("#projectDetails").slideToggle(500);
+    });
+
+    // 7. Addition using jQuery
+    $("#addBtn").click(function() {
+        let num1 = Number($("#num1").val());
+        let num2 = Number($("#num2").val());
+
+        if ($("#num1").val().trim() === "" ||
+            $("#num2").val().trim() === "") {
+            $("#result").val("");
+            $("#resultBox").text("Please enter both numbers.");
+            return;
+        }
+
+        let sum = num1 + num2;
+
+        $("#result").val(sum);
+        $("#resultBox").html("Result: " + sum);
+    });
+
+});
+</script>
+
+</body>
+</html>

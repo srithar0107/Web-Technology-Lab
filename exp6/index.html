@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Architectural Firm - Experiment 6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="home">
+        <h1 id="main-title">Elite Architectural Firm</h1>
+        <p>Designing Modern Buildings with Creativity and Innovation</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#javascript-lab">Interactive Features</a>
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about" class="content-section">
+        <h2>About Our Firm</h2>
+        <p>
+            We specialize in modern residential, commercial and interior
+            architectural designs. Our goal is to create sustainable,
+            attractive and practical buildings.
+        </p>
+
+        <button type="button" onclick="changeStyle()">Change Title Style</button>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="content-section">
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+            <div class="service-box">
+                <h3>Building Design</h3>
+                <p>Modern residential and commercial building designs.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Interior Design</h3>
+                <p>Creative interior designs for homes and offices.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>Planning Services</h3>
+                <p>Floor plans, 3D visualization and project planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="content-section">
+        <h2>Our Projects</h2>
+
+        <table>
+            <tr>
+                <th>Project</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Luxury Villa</td>
+                <td>Karur</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>Office Complex</td>
+                <td>Chennai</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>Shopping Mall</td>
+                <td>Coimbatore</td>
+                <td>Ongoing</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- JAVASCRIPT STYLES AND ANIMATIONS -->
+    <section id="javascript-lab" class="content-section">
+        <h2>JavaScript Styles and Animations</h2>
+
+        <!-- Change Styles -->
+        <div class="demo-box">
+            <h3>Change Styles</h3>
+            <p id="style-message">Explore our architectural designs.</p>
+            <button type="button" onclick="changeMessageStyle()">
+                Change Text Style
+            </button>
+        </div>
+
+        <!-- Show and Hide -->
+        <div class="demo-box">
+            <h3>Show and Hide Information</h3>
+            <p id="hide-message">
+                Our team creates modern and sustainable buildings.
+            </p>
+            <button type="button" onclick="hideText()">Hide</button>
+            <button type="button" onclick="showText()">Show</button>
+        </div>
+
+        <!-- Date and Time -->
+        <div class="demo-box">
+            <h3>Current Date and Time</h3>
+            <p id="date-display">Date will appear here.</p>
+            <p id="time-display">Time will appear here.</p>
+        </div>
+
+        <!-- Timing Events -->
+        <div class="demo-box">
+            <h3>Timing Events</h3>
+            <p id="timer-message">Click Start to begin the timer.</p>
+            <button type="button" onclick="startTimer()">Start Timer</button>
+            <button type="button" onclick="stopTimer()">Stop Timer</button>
+            <button type="button" onclick="showDelayedMessage()">Delayed Message</button>
+        </div>
+
+        <!-- Animation -->
+        <div class="demo-box">
+            <h3>Building Animation</h3>
+            <p>Move the building across the area.</p>
+
+            <div id="animation-container">
+                <div id="moving-building">🏢</div>
+            </div>
+
+            <button type="button" onclick="startAnimation()">Start Animation</button>
+            <button type="button" onclick="stopAnimation()">Stop Animation</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Elite Architectural Firm</h2>
+        <p>Designing Modern Buildings with Creativity and Innovation.</p>
+        <p>Designed By: SRITHAR B</p>
+        <p>© 2026 Elite Architectural Firm. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
