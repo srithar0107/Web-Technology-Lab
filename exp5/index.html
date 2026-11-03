@@ -1,239 +1,515 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Architectural Firm</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>Exercise 5: JavaScript - DOM Elements and Events</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .site-header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .site-header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .site-header p {
+            color: #bdc3c7;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 6px;
+        }
+
+        .card .desc {
+            font-size: 0.88rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .custom-fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-fieldset legend {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccd1d9;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .result-box {
+            margin-top: 18px;
+            padding: 12px 15px;
+            background-color: #eaf2f8;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .result-box p {
+            margin-bottom: 4px;
+        }
+
+        .garden-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+        }
+
+        .fruit-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .coin-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0 20px;
+        }
+
+        .coin-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #e1e8ed;
+        }
+    </style>
+</head>
 <body>
 
-    <!-- HEADER -->
-    <header id="home">
-        <h1>Elite Architectural Firm</h1>
-        <p>Designing Modern Buildings with Creativity and Innovation</p>
+    <header class="site-header">
+        <div class="container">
+            <h1>Exercise 5: JavaScript - DOM Elements and Events</h1>
+            <p>URK24CS6003 | Web Technology Lab</p>
+        </div>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- CLIENT LOGIN AND REGISTRATION -->
-    <section class="login-section">
-
-        <div class="login-box">
-            <h2>Client Sign In</h2>
-
-            <form id="login-form">
-                <label for="login-email">Email</label>
-                <input id="login-email" type="email"
-                       placeholder="Enter Email" required>
-
-                <label for="login-password">Password</label>
-                <input id="login-password" type="password"
-                       placeholder="Enter Password"
-                       minlength="8"
-                       pattern="(?=.*[^A-Za-z0-9]).{8,}"
-                       title="Password must contain at least 8 characters and one special character."
-                       required>
-
-                <input type="submit" value="Sign In">
-            </form>
-        </div>
-
-        <div class="login-box">
-            <h2>Client Sign Up</h2>
-
-            <form id="signup-form">
-                <label for="full-name">Full Name</label>
-                <input id="full-name" type="text"
-                       placeholder="Enter Full Name" required>
-
-                <label for="signup-email">Email</label>
-                <input id="signup-email" type="email"
-                       placeholder="Enter Email" required>
-
-                <label for="phone">Phone Number</label>
-                <input id="phone" type="tel"
-                       placeholder="Enter 10 digit phone number"
-                       pattern="[0-9]{10}"
-                       maxlength="10"
-                       title="Enter exactly 10 digits"
-                       required>
-
-                <label for="signup-password">Password</label>
-                <input id="signup-password" type="password"
-                       placeholder="Enter Password"
-                       minlength="8"
-                       pattern="(?=.*[^A-Za-z0-9]).{8,}"
-                       title="Password must contain at least 8 characters and one special character."
-                       required>
-
-                <input type="submit" value="Sign Up">
-            </form>
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="content-section">
-        <h2>About Our Firm</h2>
-
-        <p>
-            Elite Architectural Firm specializes in modern residential,
-            commercial and interior architectural designs.
-            Our team focuses on creating modern, sustainable and
-            practical buildings according to client requirements.
-        </p>
-
-        <p>
-            We combine creativity with modern technology to provide
-            better architectural solutions for every project.
-        </p>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="content-section">
-        <h2>Our Services</h2>
-
-        <div class="service-container">
-
-            <div class="service-box">
-                <h3>Building Design</h3>
-                <ul>
-                    <li>Residential Design</li>
-                    <li>Commercial Design</li>
-                    <li>Villa Design</li>
-                    <li>Apartment Design</li>
-                </ul>
+    <main class="container main-content">
+        <!-- Question 1: Shortest and Longest Word -->
+        <section class="card">
+            <h2>1. Word Length Finder</h2>
+            <p class="desc">Accepts a string and finds the shortest and longest word.</p>
+            <div class="form-group">
+                <label for="strInput">Example String:</label>
+                <input type="text" id="strInput" value="Web Development Tutorial">
             </div>
-
-            <div class="service-box">
-                <h3>Interior Design</h3>
-                <ul>
-                    <li>Living Room Design</li>
-                    <li>Office Interior</li>
-                    <li>Kitchen Design</li>
-                    <li>Modern Interiors</li>
-                </ul>
+            <button class="btn" onclick="findWords()">Analyze String</button>
+            <div class="result-box">
+                <p>Shortest: <strong id="shortWord">-</strong></p>
+                <p>Longest: <strong id="longWord">-</strong></p>
             </div>
+        </section>
 
-            <div class="service-box">
-                <h3>Planning Services</h3>
-                <ul>
-                    <li>Floor Plans</li>
-                    <li>3D Visualization</li>
-                    <li>Construction Planning</li>
-                    <li>Project Management</li>
-                </ul>
+        <!-- Question 2: BMI Calculator -->
+        <section class="card">
+            <h2>2. BMI Calculator</h2>
+            <p class="desc">Calculates Body Mass Index from weight (kg) and height (m).</p>
+            <fieldset class="custom-fieldset">
+                <legend>Calculate your Body Mass Index (BMI)!</legend>
+                <div class="form-group">
+                    <label for="weight">Weight (in kilograms):</label>
+                    <input type="number" id="weight" placeholder="e.g. 70" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (in meters):</label>
+                    <input type="number" id="height" placeholder="e.g. 1.75" step="0.01">
+                </div>
+                <button class="btn" onclick="calculate();">Get BMI!</button>
+            </fieldset>
+            <div class="result-box">
+                <p>Your BMI is <span id="score"><b>-</b></span>.</p>
+                <p>Your body type is <span id="type"><b>-</b></span>.</p>
             </div>
+        </section>
 
-        </div>
+        <!-- Question 3: Fruit Farm Grid -->
+        <section class="card">
+            <h2>3. Fruit Farm</h2>
+            <p class="desc">Generates a rectangular grid of randomly placed fruit images.</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="rows">Rows:</label>
+                    <input type="number" id="rows" value="3" min="1" max="8">
+                </div>
+                <div class="form-group">
+                    <label for="columns">Columns:</label>
+                    <input type="number" id="columns" value="4" min="1" max="8">
+                </div>
+            </div>
+            <button class="btn" onclick="grow();">Plant Garden</button>
+            <div id="garden" class="garden-box"></div>
+        </section>
 
-        <p id="service-message">
-            Click a service card to learn more about it.
-        </p>
-    </section>
+        <!-- Question 4: Currency Converter -->
+        <section class="card">
+            <h2>4. Currency Converter</h2>
+            <p class="desc">Converts values between Indian Rupees and US Dollars.</p>
+            <fieldset class="custom-fieldset">
+                <div class="form-group">
+                    <label for="data">Convert Amount:</label>
+                    <input type="number" id="data" value="100">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <select id="from">
+                            <option>Indian Rupee</option>
+                            <option>US Dollar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To:</label>
+                        <select id="to">
+                            <option>US Dollar</option>
+                            <option>Indian Rupee</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn" onclick="convert();">Calculate</button>
+                <div class="result-box">
+                    <p>Result: <span id="answer"><b>-</b></span></p>
+                </div>
+            </fieldset>
+        </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="content-section">
-        <h2>Completed Projects</h2>
+        <!-- Question 5: Coin Flip -->
+        <section class="card">
+            <h2>5. Heads or Tails?</h2>
+            <p class="desc">Flips a coin randomly and tracks flip totals.</p>
+            <div class="coin-wrapper">
+                <div id="coin" class="coin-circle">HEADS</div>
+            </div>
+            <button id="flip" class="btn">Flip!</button>
+            <div class="result-box">
+                <p>Heads Total: <span id="num_heads">0</span></p>
+                <p>Tails Total: <span id="num_tails">0</span></p>
+            </div>
+        </section>
 
-        <table>
-            <tr>
-                <th>Project Name</th>
-                <th>Location</th>
-                <th>Year</th>
-                <th>Status</th>
-            </tr>
+        <!-- Question 6: Cake Order Form -->
+        <section class="card">
+            <h2>6. Birthday Cake Order Form</h2>
+            <p class="desc">Calculates order price based on cake weights, tax, and tip.</p>
+            <fieldset class="custom-fieldset">
+                <div class="form-group">
+                    <label for="small"># of 1/2kg Cakes (Rs. 100):</label>
+                    <input type="number" id="small" value="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="medium"># of 1kg Cakes (Rs. 200):</label>
+                    <input type="number" id="medium" value="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="large"># of 2kg Cakes (Rs. 400):</label>
+                    <input type="number" id="large" value="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label>Tip Amount:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" value="10" name="tip" /> 10%</label>
+                        <label><input type="radio" value="15" name="tip" checked="checked" /> 15%</label>
+                        <label><input type="radio" value="20" name="tip" /> 20%</label>
+                    </div>
+                </div>
+                <button id="submit" class="btn">Calculate Order</button>
+                <div class="result-box">
+                    <p>Cost of order: <span id="price"><b>Rs. 0.00</b></span></p>
+                </div>
+            </fieldset>
+        </section>
+    </main>
 
-            <tr class="project-row"
-                data-project="Luxury Villa"
-                data-location="Karur">
-                <td>Luxury Villa</td>
-                <td>Karur</td>
-                <td>2024</td>
-                <td>Completed</td>
-            </tr>
-
-            <tr class="project-row"
-                data-project="Office Complex"
-                data-location="Chennai">
-                <td>Office Complex</td>
-                <td>Chennai</td>
-                <td>2025</td>
-                <td>Completed</td>
-            </tr>
-
-            <tr class="project-row"
-                data-project="Shopping Mall"
-                data-location="Coimbatore">
-                <td>Shopping Mall</td>
-                <td>Coimbatore</td>
-                <td>2026</td>
-                <td>Ongoing</td>
-            </tr>
-
-            <tr class="project-row"
-                data-project="Apartment Building"
-                data-location="Madurai">
-                <td>Apartment Building</td>
-                <td>Madurai</td>
-                <td>2025</td>
-                <td>Completed</td>
-            </tr>
-        </table>
-
-        <p id="project-details">
-            Click a project row to view its details.
-        </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="content-section">
-        <h2>Contact Information</h2>
-
-        <p><b>Company:</b> Elite Architectural Firm</p>
-        <p><b>Address:</b> Karur, Tamil Nadu, India</p>
-        <p><b>Phone:</b> +91 7094383092</p>
-        <p><b>Email:</b> sritharb@karunya.edu.in</p>
-        <p><b>Office Hours:</b> Monday - Saturday, 9:00 AM - 6:00 PM</p>
-    </section>
-
-    <!-- EXPERIMENT 5: DOM INTERACTION -->
-    <section class="content-section">
-        <h2>Explore Our Architecture</h2>
-
-        <p id="project-message">
-            Discover our architectural services and projects.
-        </p>
-
-        <button id="learn-more-button" type="button">
-            Learn More
-        </button>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-        <h2>Elite Architectural Firm</h2>
-        <p>Designing Modern Buildings with Creativity and Innovation.</p>
-        <p>Designed By: SRITHAR B</p>
-        <p>Register No: URK24CS6003</p>
-        <p>B.Tech Computer Science and Engineering</p>
-        <p>Karunya Institute of Technology and Sciences</p>
-        <p>© 2026 Elite Architectural Firm. All Rights Reserved.</p>
+        <div class="container">
+            <p>Web Technology Lab &copy; Exercise 5 - DOM Elements and Events</p>
+        </div>
     </footer>
 
-    <!-- CONNECT JAVASCRIPT -->
-    <script src="script.js"></script>
+    <script>
+        // 1. Find Shortest and Longest Word
+        function findWords() {
+            var text = document.getElementById("strInput").value.trim();
+            if (!text) return;
+            
+            var words = text.split(" ");
+            var shortest = words[0];
+            var longest = words[0];
 
+            for (var i = 1; i < words.length; i++) {
+                if (words[i].length < shortest.length) {
+                    shortest = words[i];
+                }
+                if (words[i].length > longest.length) {
+                    longest = words[i];
+                }
+            }
+
+            document.getElementById("shortWord").textContent = shortest;
+            document.getElementById("longWord").textContent = longest;
+        }
+
+        // 2. BMI Calculator
+        function calculate() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                document.getElementById("score").innerHTML = "Invalid input";
+                document.getElementById("type").innerHTML = "-";
+                return;
+            }
+
+            var bmi = weight / (height * height);
+            document.getElementById("score").innerHTML = bmi.toFixed(2);
+
+            var bodyType = "";
+            if (bmi < 18) {
+                bodyType = "Underweight";
+            } else if (bmi >= 18 && bmi <= 25) {
+                bodyType = "Normal";
+            } else if (bmi > 25 && bmi <= 30) {
+                bodyType = "Overweight";
+            } else {
+                bodyType = "Obese";
+            }
+
+            document.getElementById("type").innerHTML = bodyType;
+        }
+
+        // 3. Fruit Farm Grid
+        function grow() {
+            var rows = parseInt(document.getElementById("rows").value) || 0;
+            var cols = parseInt(document.getElementById("columns").value) || 0;
+            var garden = document.getElementById("garden");
+            garden.innerHTML = "";
+
+            var total = rows * cols;
+            var fruits = ["🍊", "🍎"];
+
+            for (var i = 0; i < total; i++) {
+                var index = Math.floor(Math.random() * 2);
+                var item = document.createElement("div");
+                item.className = "fruit-badge";
+                item.textContent = fruits[index];
+                garden.appendChild(item);
+            }
+        }
+
+        // 4. Currency Converter
+        function convert() {
+            var val = parseFloat(document.getElementById("data").value);
+            var fromIndex = document.getElementById("from").selectedIndex;
+            var fromVal = document.getElementById("from")[fromIndex].value;
+            
+            var toIndex = document.getElementById("to").selectedIndex;
+            var toVal = document.getElementById("to")[toIndex].value;
+            
+            var answerSpan = document.getElementById("answer");
+
+            if (isNaN(val)) {
+                answerSpan.innerHTML = "Invalid input";
+                return;
+            }
+
+            var result = val;
+            if (fromVal.includes("Rupee") && toVal.includes("Dollar")) {
+                result = val * 0.015;
+            } else if (fromVal.includes("Dollar") && toVal.includes("Rupee")) {
+                result = val * 67.12;
+            }
+
+            answerSpan.innerHTML = result.toFixed(2) + " " + toVal;
+        }
+
+        // 5. Coin Flip Event Listener
+        var headsCount = 0;
+        var tailsCount = 0;
+
+        document.getElementById("flip").addEventListener("click", function() {
+            var coin = document.getElementById("coin");
+            var isHeads = Math.random() < 0.5;
+
+            if (isHeads) {
+                headsCount++;
+                coin.textContent = "HEADS";
+                coin.style.background = "linear-gradient(135deg, #f1c40f, #f39c12)";
+            } else {
+                tailsCount++;
+                coin.textContent = "TAILS";
+                coin.style.background = "linear-gradient(135deg, #bdc3c7, #7f8c8d)";
+            }
+
+            document.getElementById("num_heads").textContent = headsCount;
+            document.getElementById("num_tails").textContent = tailsCount;
+        });
+
+        // 6. Cake Order Form Event Listener
+        document.getElementById("submit").addEventListener("click", function () {
+            var small = parseInt(document.getElementById("small").value) || 0;
+            var medium = parseInt(document.getElementById("medium").value) || 0;
+            var large = parseInt(document.getElementById("large").value) || 0;
+
+            var subtotal = (small * 100) + (medium * 200) + (large * 400);
+            var tax = subtotal * 0.09;
+            var totalWithTax = subtotal + tax;
+
+            var tipRadio = document.querySelector('input[name="tip"]:checked');
+            var tipPercent = tipRadio ? parseFloat(tipRadio.value) : 15;
+            var tipAmount = totalWithTax * (tipPercent / 100);
+
+            var finalPrice = totalWithTax + tipAmount;
+
+            document.getElementById("price").textContent = "Rs. " + finalPrice.toFixed(2);
+        });
+
+        // Initialize default views
+        findWords();
+        grow();
+        convert();
+    </script>
 </body>
 </html>
